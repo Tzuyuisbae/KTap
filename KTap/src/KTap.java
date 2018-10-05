@@ -1,7 +1,9 @@
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
+import javax.swing.JLabel;
 import javax.swing.Timer;
 
 import GUI.Mainscreen;
@@ -22,7 +24,8 @@ public class KTap {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				System.out.println("test");
+				// move the notes
+				moveNote();
 			}
 			
 		    public void keyPressed(KeyEvent e) {
@@ -45,7 +48,7 @@ public class KTap {
 		
 	}
 	
-	public void moveNote() {
+	public static void moveNote() {
 		
 	}
 
