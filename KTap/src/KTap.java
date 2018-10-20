@@ -2,6 +2,7 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 
 import javax.swing.JLabel;
 import javax.swing.Timer;
@@ -10,7 +11,7 @@ import GUI.Mainscreen;
 
 public class KTap {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
 		// create the main screen
 		Mainscreen mainScreen = new Mainscreen(1700, 1000);
