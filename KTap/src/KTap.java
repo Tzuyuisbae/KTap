@@ -23,7 +23,7 @@ public class KTap {
 		ActionListener action = new ActionListener(){
 
 			@Override
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				// move the notes
 				moveNote();
@@ -34,6 +34,8 @@ public class KTap {
 		    }
 			
 		};
+		
+		mainScreen.playButton.addActionListener(action);
 		
 		// read the notes
 		

@@ -2,7 +2,6 @@ package GUI;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.IOException;
@@ -15,52 +14,57 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class Mainscreen extends JFrame{
 
 	// get the screen size
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
+	public JButton playButton;
+	
 	// constructor with input sizes
 	public Mainscreen(int width, int height) throws IOException {
-		this.setSize(width, height);
 		setUp(width, height);
 	}
 	
 	// default constructor
 	public Mainscreen() throws IOException {
-		this.setSize((int) screenSize.getWidth(), (int) screenSize.getHeight());
 		setUp((int) screenSize.getWidth(), (int) screenSize.getHeight());
 	}
 	
 	public void setUp(int width, int height) throws IOException {
-				
+		
+		this.setSize(width, height);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 		this.setLocationRelativeTo(null);
-		
 		this.setLayout(new BorderLayout());
 		
+		// read in the background image
 	    ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-	    InputStream input = classLoader.getResourceAsStream("cover.jpg");
+	    InputStream input = classLoader.getResourceAsStream("background.gif");
 	    Image image = ImageIO.read(input);
-	    		
+	    // resize the image to match the frame
+	    image = image.getScaledInstance(width, height, Image.SCALE_DEFAULT);
+	    
+	    // create a new jlabel for the background image
 		JLabel background=new JLabel(new ImageIcon(image));
-	    JPanel backgroundPanel = new JPanel();
+	    // create a new jpanel for the background
+		JPanel backgroundPanel = new JPanel();
 
+		// add the background image to the background panel
 	    backgroundPanel.add(background);
-		//background.setOpaque(false);
-	    background.setBounds(0, 0, width, height);
-		
+	    // set the size of the panel
 		backgroundPanel.setBounds(0, 0, width, height);
 		//background.setLayout(new FlowLayout());
 		backgroundPanel.setVisible(true);
-		JButton b1 = new JButton("I am a button");
-		b1.setVisible(true);
-		b1.setBounds(width/2, height/2, 200, 50);
-		background.add(b1);
 		
-		System.out.println(width + " " +  height);
-		
+		// create  a new button to go the the song select screen
+		playButton = new JButton("Play");
+		playButton.setVisible(true);
+		playButton.setBounds(width/2 - 100, height/4 * 3, 200, 50);
+		background.add(playButton);
+				
 		this.add(backgroundPanel);
 		this.setVisible(true);
 		
