@@ -12,7 +12,7 @@ public class JPanelExample {
  
     JPanel panel = new JPanel();
  
-    BufferedImage image = ImageIO.read(new File("/cover.jpg"));
+    BufferedImage image = ImageIO.read(new File("../images/cover.jpg"));
     JLabel label = new JLabel(new ImageIcon(image));
     panel.add(label);
  

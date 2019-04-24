@@ -42,7 +42,7 @@ public class Mainscreen extends JFrame{
 		
 		// read in the background image
 	    ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-	    InputStream input = classLoader.getResourceAsStream("background.gif");
+	    InputStream input = classLoader.getResourceAsStream("../images/background/background.gif");
 	    Image image = ImageIO.read(input);
 	    // resize the image to match the frame
 	    image = image.getScaledInstance(width, height, Image.SCALE_DEFAULT);
